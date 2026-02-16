@@ -14,8 +14,8 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: "MINIOR by Sanghyunk!m",
-  description: "Precision metal objects. Inquiry-based showroom and profile."
+  title: "SanghyunK!m Atelier",
+  description: "Luxury industrial metal objects. Inquiry-based store and profile."
 };
 
 export default function RootLayout({ children }) {

@@ -27,6 +27,9 @@ body {
   background: var(--bg);
   color: var(--text);
   cursor: none;
+  overflow-x: clip;
+  scroll-behavior: smooth;
+  scroll-padding-top: 110px;
 }
 
 body {
@@ -61,12 +64,13 @@ select {
   font-size: 12px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  transition: background-color 220ms ease, color 220ms ease;
+  transition: background-color 260ms ease, color 260ms ease, transform 260ms ease;
 }
 
 .btn-metal:hover {
   background: #111827;
   color: #f3f4f6;
+  transform: translateY(-1px);
 }
 
 .metal-bg {
@@ -75,44 +79,42 @@ select {
     linear-gradient(140deg, #dfe3e8 0%, #b8bec9 40%, #f0f2f5 100%);
 }
 
-.cursor-cross {
+.cursor-ring {
   position: fixed;
   top: 0;
   left: 0;
-  width: 18px;
-  height: 18px;
+  width: 34px;
+  height: 34px;
   pointer-events: none;
   z-index: 80;
   transform: translate(-50%, -50%);
-  transition: transform 180ms ease, opacity 180ms ease, border-color 180ms ease;
-  opacity: 0.95;
+  transition: transform 220ms ease, opacity 180ms ease, background-color 220ms ease;
+  border: 1px solid rgba(17, 24, 39, 0.75);
+  mix-blend-mode: multiply;
+  backdrop-filter: blur(1px);
 }
 
-.cursor-cross::before,
-.cursor-cross::after {
-  content: "";
-  position: absolute;
-  background: rgba(17, 24, 39, 0.85);
+.cursor-ring.active {
+  transform: translate(-50%, -50%) scale(1.28);
+  background: rgba(17, 24, 39, 0.08);
 }
 
-.cursor-cross::before {
-  width: 1px;
-  height: 18px;
-  left: 50%;
+.cursor-dot {
+  position: fixed;
   top: 0;
-  transform: translateX(-50%);
-}
-
-.cursor-cross::after {
-  width: 18px;
-  height: 1px;
-  top: 50%;
   left: 0;
-  transform: translateY(-50%);
+  width: 5px;
+  height: 5px;
+  background: rgba(17, 24, 39, 0.9);
+  pointer-events: none;
+  z-index: 81;
+  transform: translate(-50%, -50%);
+  transition: transform 180ms ease, opacity 160ms ease, background-color 220ms ease;
 }
 
-.cursor-cross.active {
-  transform: translate(-50%, -50%) scale(1.45);
+.cursor-dot.active {
+  transform: translate(-50%, -50%) scale(1.55);
+  background: rgba(17, 24, 39, 1);
 }
 
 @media (max-width: 900px) {
