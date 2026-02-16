@@ -7,6 +7,29 @@
   --accent: #0d5d56;
   --accent-strong: #08453f;
   --shadow: 0 18px 36px rgba(16, 35, 61, 0.12);
+  --header-bg: rgba(244, 247, 251, 0.85);
+  --hero-bg: linear-gradient(128deg, #f6faf8 0%, #e9eef8 100%);
+  --card-bg: #fff;
+  --contact-bg: linear-gradient(135deg, #0f7169 0%, #0a495f 100%);
+  --theme-btn-bg: #ffffff;
+  --theme-btn-text: #10233d;
+}
+
+body[data-theme="dark"] {
+  --bg: #0f1a2a;
+  --surface: #18263ccc;
+  --text: #e8eef8;
+  --muted: #acbfd7;
+  --line: #2a3f5c;
+  --accent: #4cb8aa;
+  --accent-strong: #7ad2c7;
+  --shadow: 0 18px 36px rgba(3, 10, 20, 0.35);
+  --header-bg: rgba(10, 18, 30, 0.78);
+  --hero-bg: linear-gradient(128deg, #17263b 0%, #10243f 100%);
+  --card-bg: #1b2a43;
+  --contact-bg: linear-gradient(135deg, #1f7f96 0%, #185f8a 100%);
+  --theme-btn-bg: #263955;
+  --theme-btn-text: #eff4ff;
 }
 
 * {
@@ -27,6 +50,7 @@ body {
     radial-gradient(circle at 92% 0, #dce6ff 0, transparent 36%),
     var(--bg);
   line-height: 1.65;
+  transition: background-color 220ms ease, color 220ms ease;
 }
 
 .site-header {
@@ -38,9 +62,15 @@ body {
   align-items: center;
   gap: 20px;
   padding: 18px 7vw;
-  background: rgba(244, 247, 251, 0.85);
+  background: var(--header-bg);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
+}
+
+.header-tools {
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
 .brand {
@@ -68,6 +98,18 @@ body {
   color: var(--text);
 }
 
+.theme-toggle {
+  border: 1px solid var(--line);
+  background: var(--theme-btn-bg);
+  color: var(--theme-btn-text);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
 main {
   width: min(1040px, 90vw);
   margin: 0 auto;
@@ -78,7 +120,7 @@ main {
   margin-top: 18px;
   padding: 54px;
   border-radius: 24px;
-  background: linear-gradient(128deg, #f6faf8 0%, #e9eef8 100%);
+  background: var(--hero-bg);
   box-shadow: var(--shadow);
 }
 
@@ -140,7 +182,7 @@ h1 {
 }
 
 .btn-secondary {
-  background: #fff;
+  background: var(--card-bg);
   color: var(--text);
   border: 1px solid var(--line);
 }
@@ -175,7 +217,7 @@ h2 {
   padding: 16px;
   border-radius: 14px;
   border: 1px solid var(--line);
-  background: #fff;
+  background: var(--card-bg);
 }
 
 h3 {
@@ -193,7 +235,7 @@ h3 {
   padding: 40px 34px;
   border-radius: 20px;
   color: #fff;
-  background: linear-gradient(135deg, #0f7169 0%, #0a495f 100%);
+  background: var(--contact-bg);
 }
 
 .contact p {
@@ -236,6 +278,12 @@ h3 {
     flex-direction: column;
     align-items: flex-start;
     padding: 14px 5vw;
+  }
+
+  .header-tools {
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
   }
 
   .site-nav {
