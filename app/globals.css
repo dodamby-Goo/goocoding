@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f3f4f6;
+  --line: rgba(17, 24, 39, 0.34);
+  --soft-line: rgba(17, 24, 39, 0.16);
+  --text: #1f2937;
+  --muted: #6b7280;
+  --metal-1: #d4d4d8;
+  --metal-2: #8f96a3;
+  --metal-3: #111827;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-radius: 0 !important;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  cursor: none;
+}
+
+body {
+  font-family: var(--font-cormorant), serif;
+  text-rendering: geometricPrecision;
+}
+
+a,
+button,
+input,
+textarea,
+select {
+  cursor: none;
+}
+
+.technical {
+  font-family: var(--font-jetbrains), monospace;
+  letter-spacing: 0.14em;
+}
+
+.hairline {
+  border-top: 0.5px solid var(--line);
+}
+
+.hairline-soft {
+  border-top: 0.5px solid var(--soft-line);
+}
+
+.btn-metal {
+  border: 0.5px solid var(--line);
+  padding: 12px 18px;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: background-color 220ms ease, color 220ms ease;
+}
+
+.btn-metal:hover {
+  background: #111827;
+  color: #f3f4f6;
+}
+
+.metal-bg {
+  background:
+    radial-gradient(circle at 10% 14%, rgba(255, 255, 255, 0.7), transparent 32%),
+    linear-gradient(140deg, #dfe3e8 0%, #b8bec9 40%, #f0f2f5 100%);
+}
+
+.cursor-cross {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+  z-index: 80;
+  transform: translate(-50%, -50%);
+  transition: transform 180ms ease, opacity 180ms ease, border-color 180ms ease;
+  opacity: 0.95;
+}
+
+.cursor-cross::before,
+.cursor-cross::after {
+  content: "";
+  position: absolute;
+  background: rgba(17, 24, 39, 0.85);
+}
+
+.cursor-cross::before {
+  width: 1px;
+  height: 18px;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.cursor-cross::after {
+  width: 18px;
+  height: 1px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.cursor-cross.active {
+  transform: translate(-50%, -50%) scale(1.45);
+}
+
+@media (max-width: 900px) {
+  html,
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select {
+    cursor: auto;
+  }
+}
