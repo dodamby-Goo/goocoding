@@ -1,1 +1,257 @@
-/* Add styles here */
+:root {
+  --bg: #f4f7fb;
+  --surface: #ffffffcc;
+  --text: #10233d;
+  --muted: #4f6178;
+  --line: #d8e0ec;
+  --accent: #0d5d56;
+  --accent-strong: #08453f;
+  --shadow: 0 18px 36px rgba(16, 35, 61, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 8% 10%, #d7f1eb 0, transparent 35%),
+    radial-gradient(circle at 92% 0, #dce6ff 0, transparent 36%),
+    var(--bg);
+  line-height: 1.65;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 7vw;
+  background: rgba(244, 247, 251, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  font-family: "Fraunces", serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.site-nav {
+  display: flex;
+  gap: 18px;
+}
+
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.94rem;
+  font-weight: 500;
+}
+
+.site-nav a:hover {
+  color: var(--text);
+}
+
+main {
+  width: min(1040px, 90vw);
+  margin: 0 auto;
+  padding: 36px 0 80px;
+}
+
+.hero {
+  margin-top: 18px;
+  padding: 54px;
+  border-radius: 24px;
+  background: linear-gradient(128deg, #f6faf8 0%, #e9eef8 100%);
+  box-shadow: var(--shadow);
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--accent);
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+h1 {
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.9rem, 4vw, 3.1rem);
+  line-height: 1.2;
+}
+
+.hero-copy {
+  max-width: 680px;
+  margin: 18px 0 0;
+  color: var(--muted);
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(13, 93, 86, 0.25);
+}
+
+.btn-primary:hover {
+  background: var(--accent-strong);
+}
+
+.btn-secondary {
+  background: #fff;
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+
+.card {
+  margin-top: 26px;
+  padding: 34px;
+  border-radius: 20px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 22px rgba(16, 35, 61, 0.08);
+}
+
+h2 {
+  font-family: "Fraunces", serif;
+  font-size: 1.65rem;
+}
+
+.card > p {
+  margin-top: 12px;
+  color: var(--muted);
+}
+
+.grid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.grid article {
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+.grid p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.contact {
+  margin-top: 26px;
+  padding: 40px 34px;
+  border-radius: 20px;
+  color: #fff;
+  background: linear-gradient(135deg, #0f7169 0%, #0a495f 100%);
+}
+
+.contact p {
+  margin: 8px 0 20px;
+  opacity: 0.92;
+}
+
+.contact .btn-primary {
+  background: #fff;
+  color: #0c4f58;
+  box-shadow: none;
+}
+
+.site-footer {
+  width: min(1040px, 90vw);
+  margin: 0 auto 40px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 560ms ease, transform 560ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px 5vw;
+  }
+
+  .site-nav {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  main {
+    width: 92vw;
+    padding-top: 22px;
+  }
+
+  .hero,
+  .card,
+  .contact {
+    padding: 26px;
+    border-radius: 16px;
+  }
+}
